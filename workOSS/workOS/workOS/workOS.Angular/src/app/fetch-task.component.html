@@ -1,0 +1,33 @@
+﻿<h1>Task Data</h1>
+
+<p>This component demonstrates fetching Task data from the server.</p>
+
+<p *ngIf="!empList"><em>Loading...</em></p>
+
+<p>
+  <a [routerLink]="['/register-task']">Create New</a>
+</p>
+
+<table class='table' *ngIf="empList">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Last Visit</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let emp of empList">
+    <td>{{ emp.id }}</td>
+    <td>{{ emp.name }}</td>
+    <td>{{ emp.description }}</td>
+    <td>{{ emp.visit }}</td>
+    <td>
+    <td>
+      <a [routerLink]="['/task/edit/', emp.id]">Edit</a> |
+      <a [routerLink]="['/task/delete/', emp.id]">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
